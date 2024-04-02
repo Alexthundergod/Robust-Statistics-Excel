@@ -24,15 +24,19 @@ Then open Excel and Go to
 Options –> Add-ins –> Manage: Excel Add-ins –> Go...
 ```
 
-In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:, and click OK. Voila! Now `MedianAbsDev`, `MeanAbsDev` & `PercentageInhibition` functions will be available in any Excel sheet.
+In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:, and click OK. Voila! Now all the functions will be available in any Excel sheet.
 
 <h2>Functions</h2>
 
-- MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)**
-- MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)**
-- PercentageInhibition **(** *`Signal`*, *`Positive_control`*, *`Negative_control`* **)**
-- CV **(** *`Datarange1`*, *`Datarange2...`* **)**
-- RCV **(** *`Datarange1`*, *`Datarange2...`* **)**
+- MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** —
+
+- MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** —
+
+- PercentageInhibition **(** *`Signal`*, *`Positive_control`*, *`Negative_control`* **)** —
+
+- CV **(** *`Datarange1`*, *`Datarange2...`* **)** —
+
+- RCV **(** *`Datarange1`*, *`Datarange2...`* **)** —
   
 <h2>License</h2>
 
