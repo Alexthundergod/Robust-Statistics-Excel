@@ -28,15 +28,15 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 <h2>Functions</h2>
 
-- MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** —
+- MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median(X_i - Median(X))$
 
-- MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** —
+- MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Mean(X_i - Mean(X))$
 
-- PercentageInhibition **(** *`Signal`*, *`Positive_control`*, *`Negative_control`* **)** —
+- PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(Signal - LowControl)/(HighControl - LowControl)$
 
-- CV **(** *`Datarange1`*, *`Datarange2...`* **)** —
+- RCV **(** *`Datarange1`*, *`Datarange2...`* **)** — $MedianAbsDev(X) / Median(X)$
 
-- RCV **(** *`Datarange1`*, *`Datarange2...`* **)** —
+- CV **(** *`Datarange1`*, *`Datarange2...`* **)** — $StdDev(X) / Mean(X)$
   
 <h2>License</h2>
 
