@@ -66,10 +66,15 @@ Next j
 
 MeanAbsDev = WorksheetFunction.Sum(resultList) / totalCells
 End Function
+Function PercentageActivity(signal, high_control, low_control As Single) As Single
+'By O.Zhadovets
+
+PercentageActivity = ((signal - low_control) / (high_control - low_control))
+End Function
 Function PercentageInhibition(signal, high_control, low_control As Single) As Single
 'By O.Zhadovets
 
-PercentageInhibition = ((signal - low_control) / (high_control - low_control))
+PercentageInhibition = 1 - ((signal - low_control) / (high_control - low_control))
 End Function
 Function RCV(ParamArray data_ranges() As Variant) As Single
 'By O.Zhadovets
