@@ -32,7 +32,9 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 - MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Mean(X_i - Mean(X))$
 
-- PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(Signal - LowC)/(HighC - LowC)$
+- PercentageActivity **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(Signal - LowC)/(HighC - LowC)$
+
+- PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $1 - (Signal - LowC)/(HighC - LowC)$
 
 - RCV **(** *`Datarange1`*, *`Datarange2...`* **)** — $MedianAbsDev(X) / Median(X)$
 
