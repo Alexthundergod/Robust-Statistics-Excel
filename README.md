@@ -28,9 +28,9 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 <h2>Functions</h2>
 
-- MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median(X_i - Median(X))$
+- MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median(Abs(X_i - Median(X)))$
 
-- MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Mean(X_i - Mean(X))$
+- MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Mean(Abs(X_i - Mean(X)))$
 
 - PercentageActivity **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(Signal - LowC)/(HighC - LowC)$
 
