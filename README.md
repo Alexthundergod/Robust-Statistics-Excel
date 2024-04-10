@@ -34,15 +34,15 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 <h2>Functions</h2>
 
-- RSD **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median(Abs(X_i - Median(X))) * 1.4826$
+- RSD **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median(Abs(X_i - Median(X))) • 1.4826$
 
 - MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median(Abs(X_i - Median(X)))$
 
 - MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Mean(Abs(X_i - Mean(X)))$
 
-- PercentageActivity **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(Signal - LowC)/(HighC - LowC) * 100$
+- PercentageActivity **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(Signal - LowC)/(HighC - LowC) • 100$
 
-- PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(1 - (Signal - LowC)/(HighC - LowC)) * 100$
+- PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(1 - (Signal - LowC)/(HighC - LowC)) • 100$
 
 - RCV **(** *`Datarange1`*, *`Datarange2...`* **)** — $RSD(X) / Median(X)$
 
