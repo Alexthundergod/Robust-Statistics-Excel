@@ -18,7 +18,12 @@ for MacOS
 /Users/USERNAME/Library/Group Containers/UBF8T346G9.Office/User Content/Add-Ins
 ```
 
-Next 
+Next, be sure to unlock the downloaded file as follows 
+
+```
+robust_by_O_Zhadovets.xlam –> Properties –> General –> Security –> Unblock
+```
+<img src="https://github.com/Alexthundergod/Robust-Statistics-Excel/blob/main/0.png"></img>
 
 Then open Excel and Go to
 
@@ -28,9 +33,10 @@ Options –> Add-ins –> Manage: Excel Add-ins –> Go...
 <img src="https://github.com/Alexthundergod/Robust-Statistics-Excel/blob/main/1.png"></img>
 <img src="https://github.com/Alexthundergod/Robust-Statistics-Excel/blob/main/2.png"></img>
 <img src="https://github.com/Alexthundergod/Robust-Statistics-Excel/blob/main/3.png"></img>
-<img src="https://github.com/Alexthundergod/Robust-Statistics-Excel/blob/main/4.png"></img>
 
 In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:, and click OK. Voila! Now all the functions will be available in any Excel sheet.
+
+<img src="https://github.com/Alexthundergod/Robust-Statistics-Excel/blob/main/4.png"></img>
 
 <h2>Functions</h2>
 
