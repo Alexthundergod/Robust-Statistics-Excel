@@ -18,10 +18,10 @@ for MacOS
 /Users/USERNAME/Library/Group Containers/UBF8T346G9.Office/User Content/Add-Ins
 ```
 
-Next, be sure to unlock the downloaded file as follows 
+Next, be sure to unblock :white_check_mark: the downloaded file as follows 
 
 ```
-robust_by_O_Zhadovets.xlam –> Properties –> General –> Security –> Unblock
+robust_by_O_Zhadovets.xlam –> Properties –> General –> Security: Unblock
 ```
 <img src="https://github.com/Alexthundergod/Robust-Statistics-Excel/blob/main/0.png"></img>
 
