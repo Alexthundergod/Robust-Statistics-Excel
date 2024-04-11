@@ -1,3 +1,6 @@
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Alexthundergod/Robust-Statistics-Excel?style=flat&color=ff80ff)
+![GitHub Repo stars](https://img.shields.io/github/stars/Alexthundergod/Robust-Statistics-Excel?style=flat&color=88E809)
+
 <h1>Robust Statistics Excel</h1>
 
 A VBA module that allows you to find Median Absolute Deviation in Excel and, accordingly, calculate robust statistics. In the future, I plan to add a few more useful statistical functions.
