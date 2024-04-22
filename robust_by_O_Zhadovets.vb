@@ -170,7 +170,19 @@ For Each data_range In data_ranges
     Next cell
 Next data_range
 
-CV = WorksheetFunction.stDev(dataList) / WorksheetFunction.Average(dataList)
+CV = WorksheetFunction.StDev(dataList) / WorksheetFunction.Average(dataList)
+End Function
+Function RZPrime(high_control_rsd, low_control_rsd, high_control_median, low_control_median As Double) As Double
+
+difference = high_control_median - low_control_median
+If difference > 0 Then
+    RZPrime = 1 - (3 * (high_control_rsd + low_control_rsd) / difference)
+ElseIf difference < 0 Then
+    RZPrime = 1 - (3 * (high_control_rsd + low_control_rsd) / ((-1) * difference))
+Else
+    RZPrime = 0
+End If
+End Function
 End Function
 Function ZPrime(high_control_sd, low_control_sd, high_control_mean, low_control_mean As Double) As Double
 
@@ -183,4 +195,70 @@ Else
     ZPrime = 0
 End If
 End Function
+Function RZPrime365(high_control, low_control As Range) As Double
 
+Dim high_control_median As Double
+high_control_median = WorksheetFunction.Median(high_control)
+
+Dim low_control_median As Double
+low_control_median = WorksheetFunction.Median(low_control)
+
+difference = high_control_median - low_control_median
+
+Dim totalCellsHigh As Long
+totalCellsHigh = WorksheetFunction.Count(high_control)
+
+Dim totalCellsLow As Long
+totalCellsLow = WorksheetFunction.Count(low_control)
+
+Dim resultListHigh() As Single
+ReDim resultListHigh(1 To totalCellsHigh)
+
+Dim resultListLow() As Single
+ReDim resultListLow(1 To totalCellsLow)
+
+For j = 1 To totalCellsHigh
+    resultListHigh(j) = Abs(high_control(j) - high_control_median)
+Next j
+
+For j = 1 To totalCellsLow
+    resultListLow(j) = Abs(low_control(j) - low_control_median)
+Next j
+
+Dim high_control_rsd As Double
+high_control_rsd = WorksheetFunction.Median(resultListHigh) * 1.4826
+Dim low_control_rsd As Double
+low_control_rsd = WorksheetFunction.Median(resultListLow) * 1.4826
+
+If difference > 0 Then
+    RZPrime365 = 1 - (3 * (high_control_rsd + low_control_rsd) / difference)
+ElseIf difference < 0 Then
+    RZPrime365 = 1 - (3 * (high_control_rsd + low_control_rsd) / ((-1) * difference))
+Else
+    RZPrime365 = 0
+End If
+End Function
+Function ZPrime365(high_control, low_control As Range) As Double
+
+Dim high_control_sd As Double
+high_control_sd = WorksheetFunction.StDev(high_control)
+
+Dim low_control_sd As Double
+low_control_sd = WorksheetFunction.StDev(low_control)
+
+Dim high_control_mean As Double
+high_control_mean = WorksheetFunction.Average(high_control)
+
+Dim low_control_mean As Double
+low_control_mean = WorksheetFunction.Average(low_control)
+
+difference = high_control_mean - low_control_mean
+
+If difference > 0 Then
+    ZPrime365 = 1 - (3 * (high_control_sd + low_control_sd) / difference)
+ElseIf difference < 0 Then
+    ZPrime365 = 1 - (3 * (high_control_sd + low_control_sd) / ((-1) * difference))
+Else
+    ZPrime365 = 0
+End If
+End Function
