@@ -49,7 +49,7 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 - MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Mean(Abs(X_i - Mean(X)))$
 
-- PercentageActivity **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(Signal - LowC)/(HighC - LowC) • 100$
+- PercentageActivity **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $\dfrac{Signal - LowC}{HighC - LowC} • 100$
 
 - PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(1 - (Signal - LowC)/(HighC - LowC)) • 100$
 
@@ -60,6 +60,18 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 - RCV **(** *`Datarange1`*, *`Datarange2...`* **)** — $RSD(X) / Median(X)$
 
 - CV **(** *`Datarange1`*, *`Datarange2...`* **)** — $SD(X) / Mean(X)$
+
+- RZprime **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $1 - \dfrac{3RSD(HighC) + 3RSD(LowC)}{Median(HighC) - Median(LowC)}$
+
+- Zprime **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $1 - \dfrac{3SD(HighC) + 3SD(LowC)}{Mean(HighC) - Mean(LowC)}$
+
+NB!: The following functions require VSTACK() or HSTACK(), available **ONLY** in Office 365, to combine disparate ranges.
+
+Use it as follows: =Function(VSTACK(A1:B24;AU1:AW24);VSTACK(C1:D24;AX1:AY24))
+
+- RZprime365 **(** *`High_control`*, *`Low_control`* **)** — $1 - \dfrac{3RSD(HighC) + 3RSD(LowC)}{Median(HighC) - Median(LowC)}$
+
+- Zprime365 **(** *`High_control`*, *`Low_control`* **)** — $1 - \dfrac{3SD(HighC) + 3SD(LowC)}{Mean(HighC) - Mean(LowC)}$
   
 <h2>License</h2>
 
