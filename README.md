@@ -43,31 +43,31 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 <h2>Functions</h2>
 
-- RSD **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median(Abs(X_i - Median(X))) • 1.4826$
+- RSD **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median|X_i - Median(X)| • 1.4826$
 
-- MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median(Abs(X_i - Median(X)))$
+- MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median|X_i - Median(X)|$
 
-- MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Mean(Abs(X_i - Mean(X)))$
+- MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Mean|X_i - Mean(X)|$
 
 - PercentageActivity **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $\dfrac{Signal - LowC}{HighC - LowC} • 100$
 
-- PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(1 - (Signal - LowC)/(HighC - LowC)) • 100$
+- PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(1 - \dfrac{Signal - LowC}{HighC - LowC}) • 100$
 
-- RPercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $(Median(X1) - Median(X2))/Median(Plate)$
+- RPercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $\dfrac{Median(X1) - Median(X2)}{Median(Plate)}$
 
-- PercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $(Mean(X1) - Mean(X2))/Mean(Plate)$
+- PercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $\dfrac{Mean(X1) - Mean(X2)}{Mean(Plate)}$
 
-- RCV **(** *`Datarange1`*, *`Datarange2...`* **)** — $RSD(X) / Median(X)$
+- RCV **(** *`Datarange1`*, *`Datarange2...`* **)** — $\dfrac{RSD(X)}{Median(X)}$
 
-- CV **(** *`Datarange1`*, *`Datarange2...`* **)** — $SD(X) / Mean(X)$
+- CV **(** *`Datarange1`*, *`Datarange2...`* **)** — $\dfrac{SD(X)}{Mean(X)}$
 
 - RZprime **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $1 - \dfrac{3(RSD(HighC) + RSD(LowC))}{Median(HighC) - Median(LowC)}$
 
 - Zprime **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $1 - \dfrac{3(SD(HighC) + SD(LowC))}{Mean(HighC) - Mean(LowC)}$
 
-- RSW **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $\dfrac{Abs(Median(HighC) - Median(LowC)) - 3(RSD(HighC) + RSD(LowC))}{RSD(LowC)}$
+- RSW **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $\dfrac{|Median(HighC) - Median(LowC)| - 3(RSD(HighC) + RSD(LowC))}{RSD(LowC)}$
 
-- SW **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $\dfrac{Abs(Mean(HighC) - Mean(LowC)) - 3(SD(HighC) + SD(LowC))}{SD(LowC)}$
+- SW **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $\dfrac{|Mean(HighC) - Mean(LowC)| - 3(SD(HighC) + SD(LowC))}{SD(LowC)}$
   
 >NB!: The following functions require VSTACK() or HSTACK(), available **ONLY** in Office 365, to combine disparate ranges.
 >
