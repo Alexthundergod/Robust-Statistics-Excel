@@ -65,9 +65,9 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 - Zprime **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $1 - \dfrac{3SD(HighC) + 3SD(LowC)}{Mean(HighC) - Mean(LowC)}$
 
-NB!: The following functions require VSTACK() or HSTACK(), available **ONLY** in Office 365, to combine disparate ranges.
-
-Use it as follows: =Function(VSTACK(A1:B24;AU1:AW24);VSTACK(C1:D24;AX1:AY24))
+>NB!: The following functions require VSTACK() or HSTACK(), available **ONLY** in Office 365, to combine disparate ranges.
+>
+>Use it as follows: =Function(VSTACK(A1:B24;AU1:AW24);VSTACK(C1:D24;AX1:AY24))
 
 - RZprime365 **(** *`High_control`*, *`Low_control`* **)** — $1 - \dfrac{3RSD(HighC) + 3RSD(LowC)}{Median(HighC) - Median(LowC)}$
 
