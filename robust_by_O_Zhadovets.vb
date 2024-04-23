@@ -183,7 +183,6 @@ Else
     RZPrime = 0
 End If
 End Function
-End Function
 Function ZPrime(high_control_sd, low_control_sd, high_control_mean, low_control_mean As Double) As Double
 
 difference = high_control_mean - low_control_mean
@@ -260,5 +259,21 @@ ElseIf difference < 0 Then
     ZPrime365 = 1 - (3 * (high_control_sd + low_control_sd) / ((-1) * difference))
 Else
     ZPrime365 = 0
+End If
+End Function
+Function RSW(high_control_rsd, low_control_rsd, high_control_median, low_control_median As Double) As Double
+
+If low_control_rsd = 0 Then
+    RSW = 0
+Else
+    RSW = (Abs(high_control_median - low_control_median) - 3 * (high_control_rsd + low_control_rsd)) / low_control_rsd
+End If
+End Function
+Function SW(high_control_sd, low_control_sd, high_control_mean, low_control_mean As Double) As Double
+
+If low_control_sd = 0 Then
+    SW = 0
+Else
+    SW = (Abs(high_control_mean - low_control_mean) - 3 * (high_control_sd + low_control_sd)) / low_control_sd
 End If
 End Function
