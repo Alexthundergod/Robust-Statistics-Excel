@@ -61,10 +61,14 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 - CV **(** *`Datarange1`*, *`Datarange2...`* **)** — $SD(X) / Mean(X)$
 
-- RZprime **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $1 - \dfrac{3RSD(HighC) + 3RSD(LowC)}{Median(HighC) - Median(LowC)}$
+- RZprime **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $1 - \dfrac{3(RSD(HighC) + RSD(LowC))}{Median(HighC) - Median(LowC)}$
 
-- Zprime **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $1 - \dfrac{3SD(HighC) + 3SD(LowC)}{Mean(HighC) - Mean(LowC)}$
+- Zprime **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $1 - \dfrac{3(SD(HighC) + SD(LowC))}{Mean(HighC) - Mean(LowC)}$
 
+- RSW **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $\dfrac{Abs(Median(HighC) - Median(LowC)) - 3(RSD(HighC) + RSD(LowC))}{RSD(LowC)}$
+
+- SW **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $\dfrac{Abs(Mean(HighC) - Mean(LowC)) - 3(SD(HighC) + SD(LowC))}{SD(LowC)}$
+  
 >NB!: The following functions require VSTACK() or HSTACK(), available **ONLY** in Office 365, to combine disparate ranges.
 >
 >Use it as follows: =Function(VSTACK(A1:B24;AU1:AW24);VSTACK(C1:D24;AX1:AY24))
