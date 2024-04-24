@@ -277,3 +277,29 @@ Else
     SW = (Abs(high_control_mean - low_control_mean) - 3 * (high_control_sd + low_control_sd)) / low_control_sd
 End If
 End Function
+Function RZscore(signal As Double, plate_range As Range) As Double
+
+Dim plate_median As Double
+plate_median = WorksheetFunction.Median(plate_range)
+
+Dim totalCellsPlate As Long
+totalCellsPlate = WorksheetFunction.Count(plate_range)
+
+Dim resultListPlate() As Single
+ReDim resultListPlate(1 To totalCellsPlate)
+
+
+For j = 1 To totalCellsPlate
+    resultListPlate(j) = Abs(plate_range(j) - plate_median)
+Next j
+
+
+Dim plate_rsd As Double
+plate_rsd = WorksheetFunction.Median(resultListPlate) * 1.4826
+
+RZscore = (signal - plate_median) / plate_rsd
+End Function
+Function Zscore(signal As Double, plate_range As Range) As Double
+
+Zscore = (signal - WorksheetFunction.Average(plate_range)) / WorksheetFunction.StDev(plate_range)
+End Function
