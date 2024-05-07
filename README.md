@@ -53,9 +53,9 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 - PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(1 - \dfrac{Signal - LowC}{HighC - LowC}) • 100$
 
-- RPercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $\dfrac{Median(X1) - Median(X2)}{Median(Plate)}$
+- RPercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $\dfrac{Median(X1) - Median(X2)}{Median(Plate)} • 100$
 
-- PercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $\dfrac{Mean(X1) - Mean(X2)}{Mean(Plate)}$
+- PercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $\dfrac{Mean(X1) - Mean(X2)}{Mean(Plate)} • 100$
 
 - RCV **(** *`Datarange1`*, *`Datarange2...`* **)** — $\dfrac{RSD(X)}{Median(X)}$
 
