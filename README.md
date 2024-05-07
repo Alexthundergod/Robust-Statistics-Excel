@@ -65,6 +65,10 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 - Zprime **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $1 - \dfrac{3(SD(HighC) + SD(LowC))}{Mean(HighC) - Mean(LowC)}$
 
+- RZprimeSamples **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`*, *`Samples_amount`* **)** — $\dfrac{(Median(HighC) - 3(RSD(HighC)/\sqrt{samplesN})-(Median(LowC) - 3(RSD(LowC)/\sqrt{samplesN})}{Median(HighC) - Median(LowC)}$
+
+- ZprimeSamples **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`*, *`Samples_amount`* **)** — $\dfrac{(Mean(HighC) - 3(SD(HighC)/\sqrt{samplesN})-(Mean(LowC) - 3(SD(LowC)/\sqrt{samplesN})}{Mean(HighC) - Mean(LowC)}$ 
+
 - RSW **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $\dfrac{|Median(HighC) - Median(LowC)| - 3(RSD(HighC) + RSD(LowC))}{RSD(LowC)}$
 
 - SW **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $\dfrac{|Mean(HighC) - Mean(LowC)| - 3(SD(HighC) + SD(LowC))}{SD(LowC)}$
