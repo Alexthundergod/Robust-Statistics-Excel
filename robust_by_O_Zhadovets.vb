@@ -194,6 +194,28 @@ Else
     ZPrime = 0
 End If
 End Function
+Function RZPrimeSamples(high_control_rsd, low_control_rsd, high_control_median, low_control_median, samples_amount As Double) As Double
+
+difference = high_control_median - low_control_median
+If difference > 0 Then
+    RZPrimeSamples = ((high_control_median - (3 * high_control_rsd) / (samples_amount) ^ 0.5) - (low_control_median - (3 * low_control_rsd) / (samples_amount) ^ 0.5)) / difference
+ElseIf difference < 0 Then
+    RZPrimeSamples = ((high_control_median - (3 * high_control_rsd) / (samples_amount) ^ 0.5) - (low_control_median - (3 * low_control_rsd) / (samples_amount) ^ 0.5)) / ((-1) * difference)
+Else
+    RZPrimeSamples = 0
+End If
+End Function
+Function ZPrimeSamples(high_control_sd, low_control_sd, high_control_mean, low_control_mean, samples_amount As Double) As Double
+
+difference = high_control_mean - low_control_mean
+If difference > 0 Then
+    ZPrimeSamples = ((high_control_mean - (3 * high_control_sd) / (samples_amount) ^ 0.5) - (low_control_mean - (3 * low_control_sd) / (samples_amount) ^ 0.5)) / difference
+ElseIf difference < 0 Then
+    ZPrimeSamples = ((high_control_mean - (3 * high_control_sd) / (samples_amount) ^ 0.5) - (low_control_mean - (3 * low_control_sd) / (samples_amount) ^ 0.5)) / ((-1) * difference)
+Else
+    ZPrimeSamples = 0
+End If
+End Function
 Function RZPrime365(high_control, low_control As Range) As Double
 
 Dim high_control_median As Double
