@@ -17,22 +17,31 @@ currentIndex = 1
 
 For Each data_range In data_ranges
     For Each cell In data_range
-        dataList(currentIndex) = cell.Value
-        currentIndex = currentIndex + 1
+        If Not IsEmpty(cell.Value) Then
+            dataList(currentIndex) = cell.Value
+            currentIndex = currentIndex + 1
+        End If
     Next cell
 Next data_range
 
+Dim improvedDataList() As Single
+ReDim improvedDataList(1 To currentIndex - 1)
+    
+For I = 1 To currentIndex - 1
+    improvedDataList(I) = dataList(I)
+Next I
+
 Dim medValue As Single
-medValue = WorksheetFunction.Median(dataList)
+medValue = WorksheetFunction.Median(improvedDataList)
 
 Dim j As Long
 Dim resultList() As Single
-ReDim resultList(1 To totalCells)
-For j = 1 To totalCells
-    resultList(j) = Abs(dataList(j) - medValue)
+ReDim resultList(1 To currentIndex - 1)
+For j = 1 To currentIndex - 1
+    resultList(j) = Abs(improvedDataList(j) - medValue)
 Next j
 
-RSD = WorksheetFunction.Median(resultList) * 1.4826
+RSD = WorksheetFunction.Median(resultList) / 0.6745
 End Function
 Function MedianAbsDev(ParamArray data_ranges() As Variant) As Single
 
@@ -50,19 +59,28 @@ currentIndex = 1
 
 For Each data_range In data_ranges
     For Each cell In data_range
-        dataList(currentIndex) = cell.Value
-        currentIndex = currentIndex + 1
+        If Not IsEmpty(cell.Value) Then
+            dataList(currentIndex) = cell.Value
+            currentIndex = currentIndex + 1
+        End If
     Next cell
 Next data_range
 
+Dim improvedDataList() As Single
+ReDim improvedDataList(1 To currentIndex - 1)
+    
+For I = 1 To currentIndex - 1
+    improvedDataList(I) = dataList(I)
+Next I
+
 Dim medValue As Single
-medValue = WorksheetFunction.Median(dataList)
+medValue = WorksheetFunction.Median(improvedDataList)
 
 Dim j As Long
 Dim resultList() As Single
-ReDim resultList(1 To totalCells)
-For j = 1 To totalCells
-    resultList(j) = Abs(dataList(j) - medValue)
+ReDim resultList(1 To currentIndex - 1)
+For j = 1 To currentIndex - 1
+    resultList(j) = Abs(improvedDataList(j) - medValue)
 Next j
 
 MedianAbsDev = WorksheetFunction.Median(resultList)
@@ -83,22 +101,31 @@ currentIndex = 1
 
 For Each data_range In data_ranges
     For Each cell In data_range
-        dataList(currentIndex) = cell.Value
-        currentIndex = currentIndex + 1
+        If Not IsEmpty(cell.Value) Then
+            dataList(currentIndex) = cell.Value
+            currentIndex = currentIndex + 1
+        End If
     Next cell
 Next data_range
 
+Dim improvedDataList() As Single
+ReDim improvedDataList(1 To currentIndex - 1)
+    
+For I = 1 To currentIndex - 1
+    improvedDataList(I) = dataList(I)
+Next I
+
 Dim avgValue As Single
-avgValue = WorksheetFunction.Average(dataList)
+avgValue = WorksheetFunction.Average(improvedDataList)
 
 Dim j As Long
 Dim resultList() As Single
-ReDim resultList(1 To totalCells)
-For j = 1 To totalCells
-    resultList(j) = Abs(dataList(j) - avgValue)
+ReDim resultList(1 To currentIndex - 1)
+For j = 1 To currentIndex - 1
+    resultList(j) = Abs(improvedDataList(j) - avgValue)
 Next j
 
-MeanAbsDev = WorksheetFunction.Sum(resultList) / totalCells
+MeanAbsDev = WorksheetFunction.Sum(resultList) / (currentIndex - 1)
 End Function
 Function PercentageActivity(signal, high_control, low_control As Single) As Single
 
@@ -147,7 +174,10 @@ For j = 1 To totalCells
     resultList(j) = Abs(dataList(j) - medValue)
 Next j
 
-RCV = WorksheetFunction.Median(resultList) / WorksheetFunction.Median(dataList)
+Dim RSD As Single
+RSD = WorksheetFunction.Median(resultList) / 0.6745
+
+RCV = RSD / WorksheetFunction.Median(dataList)
 End Function
 Function CV(ParamArray data_ranges() As Variant) As Single
 
@@ -194,24 +224,24 @@ Else
     ZPrime = 0
 End If
 End Function
-Function RZPrimeSamples(high_control_rsd, low_control_rsd, high_control_median, low_control_median, samples_amount As Double) As Double
+Function RZPrimeSamples(high_control_rsd, low_control_rsd, high_control_median, low_control_median, reps_per_sample As Double) As Double
 
 difference = high_control_median - low_control_median
 If difference > 0 Then
-    RZPrimeSamples = ((high_control_median - (3 * high_control_rsd) / (samples_amount) ^ 0.5) - (low_control_median - (3 * low_control_rsd) / (samples_amount) ^ 0.5)) / difference
+    RZPrimeSamples = 1 - (3 * (high_control_rsd + low_control_rsd) / (difference * (reps_per_sample) ^ 0.5))
 ElseIf difference < 0 Then
-    RZPrimeSamples = ((high_control_median - (3 * high_control_rsd) / (samples_amount) ^ 0.5) - (low_control_median - (3 * low_control_rsd) / (samples_amount) ^ 0.5)) / ((-1) * difference)
+    RZPrimeSamples = 1 - (3 * (high_control_sd + low_control_sd) / ((-1) * difference * (reps_per_sample) ^ 0.5))
 Else
     RZPrimeSamples = 0
 End If
 End Function
-Function ZPrimeSamples(high_control_sd, low_control_sd, high_control_mean, low_control_mean, samples_amount As Double) As Double
+Function ZPrimeSamples(high_control_sd, low_control_sd, high_control_mean, low_control_mean, reps_per_sample As Double) As Double
 
 difference = high_control_mean - low_control_mean
 If difference > 0 Then
-    ZPrimeSamples = ((high_control_mean - (3 * high_control_sd) / (samples_amount) ^ 0.5) - (low_control_mean - (3 * low_control_sd) / (samples_amount) ^ 0.5)) / difference
+    ZPrimeSamples = 1 - (3 * (high_control_sd + low_control_sd) / (difference * (reps_per_sample) ^ 0.5))
 ElseIf difference < 0 Then
-    ZPrimeSamples = ((high_control_mean - (3 * high_control_sd) / (samples_amount) ^ 0.5) - (low_control_mean - (3 * low_control_sd) / (samples_amount) ^ 0.5)) / ((-1) * difference)
+    ZPrimeSamples = 1 - (3 * (high_control_sd + low_control_sd) / ((-1) * difference * (reps_per_sample) ^ 0.5))
 Else
     ZPrimeSamples = 0
 End If
@@ -247,9 +277,9 @@ For j = 1 To totalCellsLow
 Next j
 
 Dim high_control_rsd As Double
-high_control_rsd = WorksheetFunction.Median(resultListHigh) * 1.4826
+high_control_rsd = WorksheetFunction.Median(resultListHigh) / 0.6745
 Dim low_control_rsd As Double
-low_control_rsd = WorksheetFunction.Median(resultListLow) * 1.4826
+low_control_rsd = WorksheetFunction.Median(resultListLow) / 0.6745
 
 If difference > 0 Then
     RZPrime365 = 1 - (3 * (high_control_rsd + low_control_rsd) / difference)
@@ -317,7 +347,7 @@ Next j
 
 
 Dim plate_rsd As Double
-plate_rsd = WorksheetFunction.Median(resultListPlate) * 1.4826
+plate_rsd = WorksheetFunction.Median(resultListPlate) / 0.6745
 
 RZscore = (signal - plate_median) / plate_rsd
 End Function
@@ -325,3 +355,4 @@ Function Zscore(signal As Double, plate_range As Range) As Double
 
 Zscore = (signal - WorksheetFunction.Average(plate_range)) / WorksheetFunction.StDev(plate_range)
 End Function
+
