@@ -1,11 +1,11 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Alexthundergod/Robust-Statistics-Excel?style=flat&color=ff80ff)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Alexthundergod/Robust-Statistics-Excel?style=flat&color=88E809)
 
-<h1>Robust Statistics Excel</h1>
+# Robust Statistics Excel
 
 A VBA module that allows you to find Median Absolute Deviation in Excel and, accordingly, calculate robust statistics. In the future, I plan to add a few more useful statistical functions.
 
-<h2>Installation</h2>
+## Installation
 
 Save the <a href=https://github.com/Alexthundergod/Robust-Statistics-Excel/blob/main/robust_by_O_Zhadovets.xlam><i>robust_by_O_Zhadovets.xlam</i></a> file in
 
@@ -41,46 +41,151 @@ In the Add-ins dialogue box tick <i>Robust_by_O_Zhadovets</i> :white_check_mark:
 
 <img src="https://github.com/Alexthundergod/Robust-Statistics-Excel/blob/main/4.png"></img>
 
-<h2>Functions</h2>
+## Functions
 
-- RSD **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median|X_i - Median(X)| • 1.4826$
+**Syntax:**
+`RSD(Data_range1,Data_range2...)`
 
-- MedianAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Median|X_i - Median(X)|$
+**Formula:**
+$Median|X_i - Median(X)| • 1.4826$
 
-- MeanAbsDev **(** *`Datarange1`*, *`Datarange2...`* **)** — $Mean|X_i - Mean(X)|$
+---
 
-- PercentageActivity **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $\dfrac{Signal - LowC}{HighC - LowC} • 100$
+**Syntax:**
+`MedianAbsDev(Data_range1,Data_range2...)`
 
-- PercentageInhibition **(** *`Signal`*, *`High_control`*, *`Low_control`* **)** — $(1 - \dfrac{Signal - LowC}{HighC - LowC}) • 100$
+**Formula:**
+$Median|X_i - Median(X)|$
 
-- RPercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $\dfrac{Median(X1) - Median(X2)}{Median(Plate)} • 100$
+---
 
-- PercentageDrift **(** *`Datarange1`*, *`Datarange2`*, *`Platerange`* **)** — $\dfrac{Mean(X1) - Mean(X2)}{Mean(Plate)} • 100$
+**Syntax:**
+`MeanAbsDev(Data_range1,Data_range2...)` 
 
-- RCV **(** *`Datarange1`*, *`Datarange2...`* **)** — $\dfrac{RSD(X)}{Median(X)}$
+**Formula:**
+$Mean|X_i - Mean(X)|$
 
-- CV **(** *`Datarange1`*, *`Datarange2...`* **)** — $\dfrac{SD(X)}{Mean(X)}$
+---
 
-- RZprime **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $1 - \dfrac{3(RSD(HighC) + RSD(LowC))}{Median(HighC) - Median(LowC)}$
+**Syntax:**
+`PercentageActivity(Signal,High_control,Low_control)`
 
-- Zprime **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $1 - \dfrac{3(SD(HighC) + SD(LowC))}{Mean(HighC) - Mean(LowC)}$
+**Formula:**
+$\dfrac{Signal - LowC}{HighC - LowC} • 100$
 
-- RZprimeSamples **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`*, *`Samples_amount`* **)** — $\dfrac{(Median(HighC) - 3(RSD(HighC)/\sqrt{samplesN})-(Median(LowC) - 3(RSD(LowC)/\sqrt{samplesN})}{Median(HighC) - Median(LowC)}$
+---
 
-- ZprimeSamples **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`*, *`Samples_amount`* **)** — $\dfrac{(Mean(HighC) - 3(SD(HighC)/\sqrt{samplesN})-(Mean(LowC) - 3(SD(LowC)/\sqrt{samplesN})}{Mean(HighC) - Mean(LowC)}$ 
+**Syntax:**
+`PercentageInhibition(Signal,High_control,Low_control)` 
 
-- RSW **(** *`High_control_RSD`*, *`Low_control_RSD`*, *`High_control_Median`*, *`Low_control_Median`* **)** — $\dfrac{|Median(HighC) - Median(LowC)| - 3(RSD(HighC) + RSD(LowC))}{RSD(LowC)}$
+**Formula:**
+$(1 - \dfrac{Signal - LowC}{HighC - LowC}) • 100$
 
-- SW **(** *`High_control_SD`*, *`Low_control_SD`*, *`High_control_Mean`*, *`Low_control_Mean`* **)** — $\dfrac{|Mean(HighC) - Mean(LowC)| - 3(SD(HighC) + SD(LowC))}{SD(LowC)}$
-  
+---
+
+**Syntax:**
+`RPercentageDrift(Data_range1,Data_range2,Plate_range)` 
+
+**Formula:**
+$\dfrac{Median(X1) - Median(X2)}{Median(Plate)} • 100$
+
+---
+
+**Syntax:**
+`PercentageDrift(Data_range1,Data_range2,Plate_range)` 
+
+**Formula:**
+$\dfrac{Mean(X1) - Mean(X2)}{Mean(Plate)} • 100$
+
+---
+
+**Syntax:**
+`RCV(Data_range1,Data_range2...)` 
+
+**Formula:**
+$\dfrac{RSD(X)}{Median(X)}$
+
+---
+
+**Syntax:**
+`CV(Data_range1,Data_range2...)` 
+
+**Formula:**
+$\dfrac{SD(X)}{Mean(X)}$
+
+---
+
+**Syntax:**
+`RZprime(High_control_RSD,Low_control_RSD,High_control_Median,Low_control_Median)` 
+
+**Formula:**
+$1 - \dfrac{3(RSD(HighC) + RSD(LowC))}{Median(HighC) - Median(LowC)}$
+
+---
+
+**Syntax:**
+`Zprime(High_control_SD,Low_control_SD,High_control_Mean,Low_control_Mean)` 
+
+**Formula:**
+$1 - \dfrac{3(SD(HighC) + SD(LowC))}{Mean(HighC) - Mean(LowC)}$
+
+---
+
+**Syntax:**
+`ZprimeSamples(High_control_RSD,Low_control_RSD,High_control_Median,Low_control_Median, Samples_amount)` 
+
+**Formula:**
+$\dfrac{(Median(HighC) - 3(RSD(HighC)/\sqrt{samplesN})-(Median(LowC) - 3(RSD(LowC)/\sqrt{samplesN})}{Median(HighC) - Median(LowC)}$
+
+---
+
+**Syntax:**
+`ZprimeSamples(High_control_SD,Low_control_SD,High_control_Mean,Low_control_Mean,Samples_amount)` 
+
+**Formula:**
+$\dfrac{(Mean(HighC) - 3(SD(HighC)/\sqrt{samplesN})-(Mean(LowC) - 3(SD(LowC)/\sqrt{samplesN})}{Mean(HighC) - Mean(LowC)}$ 
+
+---
+
+**Syntax:**
+RSW(High_control_RSD,Low_control_RSD,High_control_Median,Low_control_Median) 
+
+**Formula:**
+$\dfrac{|Median(HighC) - Median(LowC)| - 3(RSD(HighC) + RSD(LowC))}{RSD(LowC)}$
+
+---
+
+**Syntax:**
+`SW(High_control_SD,Low_control_SD,High_control_Mean,Low_control_Mean)` 
+
+**Formula:**
+$\dfrac{|Mean(HighC) - Mean(LowC)| - 3(SD(HighC) + SD(LowC))}{SD(LowC)}$
+
+---
+
 >NB!: The following functions require VSTACK() or HSTACK(), available **ONLY** in Office 365, to combine disparate ranges.
 >
 >Use it as follows: =Function(VSTACK(A1:B24;AU1:AW24);VSTACK(C1:D24;AX1:AY24))
 
-- RZprime365 **(** *`High_control`*, *`Low_control`* **)** — $1 - \dfrac{3RSD(HighC) + 3RSD(LowC)}{Median(HighC) - Median(LowC)}$
+---
 
-- Zprime365 **(** *`High_control`*, *`Low_control`* **)** — $1 - \dfrac{3SD(HighC) + 3SD(LowC)}{Mean(HighC) - Mean(LowC)}$
+**Syntax:**
+`RZprime365(High_control,Low_control)` 
+
+**Formula:**
+$1 - \dfrac{3RSD(HighC) + 3RSD(LowC)}{Median(HighC) - Median(LowC)}$
+
+---
+
+**Syntax:**
+`Zprime365(High_control,Low_control)` 
+
+**Formula:**
+$1 - \dfrac{3SD(HighC) + 3SD(LowC)}{Mean(HighC) - Mean(LowC)}$
+
+---
+
   
-<h2>License</h2>
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
